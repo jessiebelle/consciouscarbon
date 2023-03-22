@@ -12,6 +12,9 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import styles from './components.module.css';
+import logo from '../static/logo.png';
+import {Link} from "react-router-dom";
 
 const pages = ['Features', 'Pricing', 'Blog', 'Get in Touch'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -37,12 +40,14 @@ function ResponsiveAppBar() {
 
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+      <Container maxWidth="xl" className={styles.styles}>
+        <Toolbar disableGutters >
+          <img sx={{ display: { xs: 'none', md: 'flex' }}} src={logo} className={styles.logo} alt={"logo"} href={'/'}/>
+
           <Typography
             variant="h6"
             noWrap
+            className={styles.text}
             component="a"
             href="/"
             sx={{
@@ -55,10 +60,10 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            <img src={'../static/logo.png'} alt={'logo'}/>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -87,10 +92,13 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
+
               {pages.map((page) => (
+                  <a href={`/${page}`}>
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography className={styles.text} textAlign="center">{page}</Typography>
                 </MenuItem>
+                      </a>
               ))}
             </Menu>
           </Box>
@@ -99,6 +107,7 @@ function ResponsiveAppBar() {
             variant="h5"
             noWrap
             component="a"
+            className={styles.text}
             href=""
             sx={{
               mr: 2,
@@ -115,13 +124,14 @@ function ResponsiveAppBar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
+              <a href={`/${page}`}><Button
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
               </Button>
+              </a>
             ))}
           </Box>
 
@@ -149,7 +159,7 @@ function ResponsiveAppBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography className={styles.text} textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>

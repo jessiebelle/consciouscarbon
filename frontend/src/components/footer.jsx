@@ -7,7 +7,7 @@ import {Link, Typography} from "@mui/material";
 function ResponsiveFooter() {
   const currentYear = new Date().getFullYear();
     return (
-    <AppBar position="sticky" style={{ background: '#351c75ff'}} >
+    <AppBar position="sticky" style={{ background: '#747C87'}} >
       <Toolbar disableGutters>
       <Typography variant="body2">
         <div>

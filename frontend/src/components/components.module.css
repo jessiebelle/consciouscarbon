@@ -1,0 +1,60 @@
+.picture {
+    width: 100%;
+    height: auto;
+
+}
+
+.styles{
+background-color: darkgray;
+color: darkgray}
+
+.logo {
+
+  width: 50px;
+  height: 50px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.2;
+  color: grey;
+  margin: 0;
+}
+
+.text {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #D4E6B5;
+  margin: 0;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: black;
+  margin: 0;
+}
+
+.greentitle {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: green;
+  margin: 0;
+}
+
+.button {
+  background-color: green;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+

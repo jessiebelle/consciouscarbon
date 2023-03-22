@@ -3,6 +3,7 @@ import axios from "axios";
 import {BrowserRouter as Router, Route, Routes,} from "react-router-dom";
 // import Home component
 import Home from "./home/homepage";
+import FeaturesPage from "./features/featuresPage";
 
 
 axios.defaults.baseURL = process.env.REACT_APP_API_URL
@@ -18,6 +19,7 @@ function App() {
             with exact path "/", in component props
             we passes the imported component*/}
             <Route path="/" element={<Home />} />
+              <Route path="/Features" element={<FeaturesPage />} />
 
           </Routes>
         </Router>
