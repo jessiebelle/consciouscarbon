@@ -1,1 +1,25 @@
-name:
+name: consciousfit
+# This is script for https://cloud.google.com/cloud-build/
+steps:
+# Install
+- name: 'gcr.io/cloud-builders/yarn'
+  args: ['install']
+# Lint
+- name: 'gcr.io/cloud-builders/yarn'
+  args: ['run', 'lint']
+# Test
+- name: 'gcr.io/cloud-builders/yarn'
+  args: ['run', 'unittest']
+# Build
+- name: 'gcr.io/cloud-builders/yarn'
+  args: ['run', 'build']
+  env:
+  - 'REACT_APP_BACKEND_URL=${_REACT_APP_BACKEND_URL}'
+  - 'NODE_PATH=./src'
+# Deploy
+- name: gcr.io/cloud-builders/gsutil
+  args: ["-m", "rsync", "-d", "-r", "build", "gs://${_FE_STAGING_BUCKET_NAME}"]
+# Grant public permission
+# TODO: it should be remove, by setting default permissions for the bucket.
+- name: gcr.io/cloud-builders/gsutil
+  args: ["-m", "acl", "ch", "-u", "AllUsers:R", "gs://${_FE_STAGING_BUCKET_NAME}/**"]
