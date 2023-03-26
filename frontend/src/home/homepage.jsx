@@ -9,7 +9,7 @@ import avatar from '../static/testimonials/img.png';
 import avatar2 from '../static/testimonials/img_1.png';
 import bulb from '../static/house/bulb.png';
 import turbine from '../static/house/turbine.png';
-
+import hero from '../static/features/hero.png'
 
 
 const Home = () => {
@@ -35,6 +35,8 @@ const Home = () => {
                     height: 'auto',
                     width: '100%',
                 }}>
+                          <img src={hero} alt={'some images of the features on iphone screens'} className={styles.hero}/>
+
     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
   <Grid item xs={6}>       <section className="hero">
                         <h1 className={styles.title}>Smart retrofitting made easy</h1>
